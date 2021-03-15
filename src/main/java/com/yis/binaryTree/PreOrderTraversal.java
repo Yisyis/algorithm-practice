@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * 前序遍历
  */
-public class preOrderTraversal {
+public class PreOrderTraversal {
 
     /**
      *  迭代方法
