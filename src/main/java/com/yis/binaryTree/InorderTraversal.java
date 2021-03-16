@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  *  中序遍历
  */
-public class inorderTraversal {
+public class InorderTraversal {
 
     /**
      * 迭代方法
