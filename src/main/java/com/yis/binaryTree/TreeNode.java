@@ -1,10 +1,14 @@
 package com.yis.binaryTree;
 
+/**
+ * @author Administrator
+ */
 public class TreeNode {
 
     int val;
     TreeNode left;
     TreeNode right;
+    TreeNode next;
 
     TreeNode() {
     }
@@ -17,5 +21,12 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right, TreeNode next) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+        this.next = next;
     }
 }
