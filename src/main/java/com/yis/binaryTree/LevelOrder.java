@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ *  层级查找
+ */
 public class LevelOrder {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
