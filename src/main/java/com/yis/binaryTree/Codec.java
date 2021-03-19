@@ -29,14 +29,16 @@ public class Codec {
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        return codeSerialize(root, "");
+        List<String> list = new LinkedList<>();
+        list = codeSerialize(root, list);
+        return String.join(",",list);
     }
 
-    public String codeSerialize(TreeNode root, String str) {
+    public List<String> codeSerialize(TreeNode root, List<String> str) {
         if (root == null) {
-            str += "None";
+            str.add("None");
         } else {
-            str += root.val + ",";
+            str.add(String.valueOf(root.val));
             str = codeSerialize(root.left, str);
             str = codeSerialize(root.right, str);
         }
