@@ -1,5 +1,8 @@
 package com.yis.linkedList;
 
+
+import com.yis.special.linkedList.ListNode;
+
 /**
  * 旋转链表
  */

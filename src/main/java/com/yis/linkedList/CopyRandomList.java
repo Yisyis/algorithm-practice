@@ -1,5 +1,7 @@
 package com.yis.linkedList;
 
+import com.yis.special.linkedList.Node;
+
 import java.util.HashMap;
 import java.util.Map;
 

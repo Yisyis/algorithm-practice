@@ -1,6 +1,8 @@
 package com.yis.labuladong.linkedList01;
 
 
+import com.yis.special.linkedList.Palindrome;
+
 /**
  * 递归：
  * 1.反转链表
@@ -28,7 +30,7 @@ public class ReverseList {
      * @return
      */
     public ListNode reverseList(ListNode head) {
-        if (head.next == null) {
+        if (head == null ||head.next == null) {
             return head;
         }
         ListNode last = reverseList(head.next);
@@ -45,14 +47,15 @@ public class ReverseList {
      * @param head
      * @return
      */
+    ListNode tail = null;
     public ListNode reverseN(ListNode head, int k) {
         // 记录后续不反转的链表
-        ListNode tail = head;
-        for (int i = 0; i < k; i++) {
-            tail = tail.next;
+        if (k == 1) {
+            tail = head.next;
+            return head;
         }
         // 反转链表，将不反转的节点接在后面
-        ListNode last = reverseList(head.next);
+        ListNode last = reverseN(head.next, k-1);
         head.next.next = head;
         head.next = tail;
         return last;
@@ -108,7 +111,7 @@ public class ReverseList {
      * @return
      */
     public ListNode reverseN01(ListNode a, ListNode b) {
-        ListNode pre = b;
+        ListNode pre = null;
         ListNode cur = a;
         ListNode nxt = a;
         while (cur != b) {
@@ -126,7 +129,7 @@ public class ReverseList {
      * @param k
      * @return
      */
-    public ListNode reverseByGroup(ListNode head, int k) {
+    public ListNode reverseKGroup(ListNode head, int k) {
         ListNode a = head;
         ListNode b = head;
         for (int i = 0; i < k; i++) {
@@ -136,7 +139,7 @@ public class ReverseList {
             b = b.next;
         }
         ListNode newHead = reverseN01(a, b);
-        a.next = reverseByGroup(newHead, k);
+        a.next = reverseKGroup(b, k);
         return newHead;
     }
 
@@ -172,20 +175,25 @@ public class ReverseList {
      * @param head
      * @return
      */
+    // 1-2-3-4-5-6-null
     public boolean isPalindrome01(ListNode head) {
+        if (head == null) {
+            return true;
+        }
         ListNode fast = head;
         ListNode slow = head;
         // 快慢指针找到中点
-        while (fast != null && fast.next != null) {
+        while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
+        // 记录最中、右指针位置
+        ListNode right = reverseList(slow.next);
         boolean res = true;
+        // 左半链表
         ListNode firstHalf = head;
         // 反转后半段链表
-        ListNode secondHalf = reverseList(slow);
-        // 记录最中、右指针位置
-        ListNode right = secondHalf;
+        ListNode secondHalf = right;
         // 逐步比对
         while (res && secondHalf != null) {
             if (firstHalf.val != secondHalf.val) {
@@ -197,6 +205,25 @@ public class ReverseList {
         // 还原链表原始结构
         firstHalf.next = reverseList(right);
         return res;
+    }
+
+
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        // ListNode node4 = new ListNode(3);
+        ListNode node5 = new ListNode(2);
+        ListNode node6 = new ListNode(1);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node5;
+        // node4.next = node5;
+        node5.next = node6;
+        ReverseList reverse = new ReverseList();
+        boolean node = reverse.isPalindrome01(node1);
+        System.out.println(node);
     }
 
 

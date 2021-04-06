@@ -1,7 +1,7 @@
 package com.yis.special.linkedList;
 
 /**
- * 回文链表    labuladong有提及新的递归解法
+ * 回文链表
  * @author YeShuai
  * @date 2021/3/24
  */

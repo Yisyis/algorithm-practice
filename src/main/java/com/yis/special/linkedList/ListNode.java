@@ -9,9 +9,9 @@ package com.yis.special.linkedList;
  */
 public class ListNode {
 
-    int val;
-    ListNode next;
-    ListNode prev;
+    public int val;
+    public ListNode next;
+    public ListNode prev;
 
     ListNode() {
     }
