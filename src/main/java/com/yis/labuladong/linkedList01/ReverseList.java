@@ -1,4 +1,4 @@
-package com.yis.labuladong.LinkedList01;
+package com.yis.labuladong.linkedList01;
 
 
 /**
