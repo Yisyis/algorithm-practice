@@ -49,7 +49,7 @@ public class ReverseTree {
         }
         // 如果左右子树的高度相同，则是一棵满二叉树
         if (hl == hr) {
-            return (int)Math.pow(2, hl) - 1;
+            return (int)Math.pow(2, hl) - 1; // 可改位运算 1<<hl - 1
         }
         // 如果左右高度不同，则按照普通二叉树的逻辑计算
         return 1 + countNodes1(root.left) + countNodes1(root.right);
