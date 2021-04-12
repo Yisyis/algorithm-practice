@@ -79,7 +79,7 @@ public class ReverseTree {
     /**
      * 3. 填充每个节点的下一个右侧节点指针
      * 前序
-     * 当一级无法实现时，去实现二级逻辑
+     * 当一级无法实现时，想着二级去实现逻辑
      *
      * @param root
      * @return

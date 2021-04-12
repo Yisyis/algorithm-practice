@@ -1,7 +1,6 @@
 package com.yis.labuladong.linkedList01;
 
 
-import com.yis.special.linkedList.Palindrome;
 
 /**
  * 递归：
@@ -70,11 +69,11 @@ public class ReverseList {
      * @param n
      * @return
      */
-    public ListNode recerseMN(ListNode head, int m, int n) {
+    public ListNode reverseMN(ListNode head, int m, int n) {
         if (m == 1) {
             return reverseN(head, n);
         }
-        head.next = recerseMN(head.next, m - 1, n - 1);
+        head.next = reverseMN(head.next, m - 1, n - 1);
         return head;
     }
 
@@ -89,7 +88,7 @@ public class ReverseList {
     public ListNode reverseList01(ListNode head) {
         ListNode pre = null;
         ListNode cur = head;
-        ListNode nxt = head;
+        ListNode nxt;
         while (cur != null) {
             // 移动next指针
             nxt = cur.next;
@@ -113,7 +112,7 @@ public class ReverseList {
     public ListNode reverseN01(ListNode a, ListNode b) {
         ListNode pre = null;
         ListNode cur = a;
-        ListNode nxt = a;
+        ListNode nxt;
         while (cur != b) {
             nxt = cur.next;
             cur.next = pre;
@@ -144,7 +143,7 @@ public class ReverseList {
     }
 
     /**
-     * 判断回文链表 O(n)
+     * 1. 判断回文链表 O(n)
      * 后续递归找到倒序节点，逐一比较
      * @param head
      * @return
@@ -169,13 +168,12 @@ public class ReverseList {
     }
 
     /**
-     * 判断回文链表 O(n)
+     * 2. 判断回文链表 O(n)
      * 快慢指针：中点反转
      * 1-2-3-4-5-6-null
      * @param head
      * @return
      */
-    // 1-2-3-4-5-6-null
     public boolean isPalindrome01(ListNode head) {
         if (head == null) {
             return true;

@@ -53,8 +53,7 @@ public class SerializeTree {
         for (String node : nodes) {
             nodeList.add(node);
         }
-        TreeNode root = new TreeNode();
-        root = deserializeTree(nodeList);
+        TreeNode root = deserializeTree(nodeList);
         return root;
     }
 
