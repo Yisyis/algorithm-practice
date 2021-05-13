@@ -1,4 +1,4 @@
-package com.yis.sort;
+package com.yis.freqLeet;
 
 import java.util.Arrays;
 
